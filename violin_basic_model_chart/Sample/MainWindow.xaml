@@ -17,7 +17,7 @@
 
             <chart:SfChart.Header>
                 <TextBlock FontSize="22" Foreground="Black" FontFamily="Segoe UI" 
-                           Margin="0,-10,0,5">Employees age group in various departments</TextBlock>
+                           Margin="0,-10,0,5">Employees Age Group in Various Departments</TextBlock>
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>
@@ -35,7 +35,7 @@
             </chart:SfChart.SecondaryAxis>
 
             <local:BoxAndWhiskerSeriesExt ItemsSource="{Binding BoxWhiskerData}"  
-                                       XBindingPath="Department"   
+                                       XBindingPath="Department" ShowOutlier="False"
                                        YBindingPath="Age" ShowTooltip="True"
                                        BoxPlotMode="Normal"
                                        x:Name="boxSeries"   />

@@ -36,7 +36,7 @@
             </chart:SfChart.SecondaryAxis>
 
             <local:BoxAndWhiskerSeriesExt ItemsSource="{Binding BoxWhiskerData}"  
-                                       XBindingPath="Models"   
+                                       XBindingPath="Models"   ShowOutlier="False"
                                        YBindingPath="RawVals" ShowTooltip="True"
                                        BoxPlotMode="Normal" ShowMedian="True"
                                        x:Name="boxSeries"   />

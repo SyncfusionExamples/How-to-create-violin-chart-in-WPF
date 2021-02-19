@@ -15,47 +15,11 @@ namespace Sample1
 {
     public class BoxAndWhiskerSeriesExt : BoxAndWhiskerSeries
     {
-        public override void CreateSegments()
+        protected override ChartSegment CreateSegment()
         {
-            base.CreateSegments();
-
-            var segments = new ObservableCollection<ChartSegment>();
-            
-            foreach (var segment in Segments)
-            {
-                if (segment is BoxAndWhiskerSegment)
-                {
-                    var item = segment as BoxAndWhiskerSegment;
-
-                    var boxSegment = new BoxAndWhiskerSegmentExt(this);
-
-                    boxSegment.SetData((double)ReflectionExt.GetInternalProperty("Left", item),
-                       (double)ReflectionExt.GetInternalProperty("Right", item),
-                        (double)ReflectionExt.GetInternalProperty("Bottom", item),
-                        item.Minimum,
-                        item.LowerQuartile,
-                        item.Median,
-                        item.UppperQuartile,
-                        item.Maximum,
-                       (double)ReflectionExt.GetInternalProperty("Top", item),
-                       (double)ReflectionExt.GetInternalProperty("Center", item),
-                       (double)ReflectionExt.GetInternalField("average", item, typeof(BoxAndWhiskerSegment)));
-
-                    boxSegment.Item = item.Item;
-                    ReflectionExt.SetInternalProperty("Outliers", item, boxSegment);
-                    ReflectionExt.SetInternalProperty("WhiskerWidth", item, boxSegment);
-
-                    segments.Add(boxSegment);
-                }
-            }
-
-            Segments.Clear();
-
-            foreach (var item in segments)
-            {
-                Segments.Add(item);
-            }
+            return new BoxAndWhiskerSegmentExt(this);
         }
+      
     }
 
 

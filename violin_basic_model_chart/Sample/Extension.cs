@@ -15,46 +15,9 @@ namespace Sample1
 {
     public class BoxAndWhiskerSeriesExt : BoxAndWhiskerSeries
     {
-        public override void CreateSegments()
+        protected override ChartSegment CreateSegment()
         {
-            base.CreateSegments();
-
-            var segments = new ObservableCollection<ChartSegment>();
-            
-            foreach (var segment in Segments)
-            {
-                if (segment is BoxAndWhiskerSegment)
-                {
-                    var item = segment as BoxAndWhiskerSegment;
-
-                    var boxSegment = new BoxAndWhiskerSegmentExt(this);
-
-                    boxSegment.SetData((double)ReflectionExt.GetInternalProperty("Left", item),
-                       (double)ReflectionExt.GetInternalProperty("Right", item),
-                        (double)ReflectionExt.GetInternalProperty("Bottom", item),
-                        item.Minimum,
-                        item.LowerQuartile,
-                        item.Median,
-                        item.UppperQuartile,
-                        item.Maximum,
-                       (double)ReflectionExt.GetInternalProperty("Top", item),
-                       (double)ReflectionExt.GetInternalProperty("Center", item),
-                       (double)ReflectionExt.GetInternalField("average", item, typeof(BoxAndWhiskerSegment)));
-
-                    boxSegment.Item = item.Item;
-                    ReflectionExt.SetInternalProperty("Outliers", item, boxSegment);
-                    ReflectionExt.SetInternalProperty("WhiskerWidth", item, boxSegment);
-
-                    segments.Add(boxSegment);
-                }
-            }
-
-            Segments.Clear();
-
-            foreach (var item in segments)
-            {
-                Segments.Add(item);
-            }
+            return new BoxAndWhiskerSegmentExt(this);
         }
     }
 
@@ -64,6 +27,8 @@ namespace Sample1
         internal double Left { get; set; }
         internal double Right { get; set; }
         internal double Center { get; set; }
+        private Path violinPath;
+
         public BoxAndWhiskerSegmentExt(ChartSeriesBase series) : base(series)
         {
 
@@ -77,18 +42,18 @@ namespace Sample1
             Center = Values[9];
         }
 
-        Path violinPath;
+      
         public override UIElement CreateVisual(Size size)
         {
             var element = base.CreateVisual(size);
-
-            violinPath = new Path();
-            violinPath.Tag = this;
-            violinPath.Stretch = Stretch.Fill;
+            violinPath = new Path()
+            {
+                Tag = this,
+                Stretch = Stretch.Fill,
+            };
+         
             SetVisualBindings(violinPath);
-
             (element as Canvas).Children.Add(violinPath);
-
             return element;
         }
 
