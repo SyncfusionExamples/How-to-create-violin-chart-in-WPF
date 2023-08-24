@@ -118,6 +118,7 @@ public class BoxAndWhiskerSegmentExt : BoxAndWhiskerSegment
 
 ![Customized Violin Chart WPF](https://github.com/SyncfusionExamples/How-to-create-violin-chart-in-WPF/blob/main/Violin-Chart-Customization.png)
 
+## Knowledge Base
 
 **KB article** - [How to create violin chart in WPF](https://www.syncfusion.com/kb/12489/how-to-create-violin-chart-in-wpf)
 
