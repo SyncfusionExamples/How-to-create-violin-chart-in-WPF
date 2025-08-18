@@ -10,8 +10,8 @@ namespace ViolinChartSample
 {
     public class BoxWhiskerModel
     {
-        public string Department { get; set; }
-        public List<double> Age { get; set; }
+        public string? Department { get; set; }
+        public List<double>? Age { get; set; }
     }
 
     public class BoxWhiskerViewModel

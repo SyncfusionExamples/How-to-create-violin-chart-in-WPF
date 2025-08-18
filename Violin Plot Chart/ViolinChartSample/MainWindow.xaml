@@ -13,34 +13,34 @@
         </Grid.DataContext>
 
         <chart:SfChart x:Name="boxWhiskerChart" AreaBorderBrush="#8e8e8e" 
-                    Background="White" Margin="10,20,20,20" 
-                    VerticalAlignment="Bottom" AreaBorderThickness="0,1,1,1">
+                 Background="White" Margin="10,20,20,20" 
+                 VerticalAlignment="Bottom" AreaBorderThickness="0,1,1,1">
 
             <chart:SfChart.Header>
                 <TextBlock FontSize="22" Foreground="Black" FontFamily="Segoe UI" 
-                        Margin="0,-10,0,5">Employees Age Group in Various Departments</TextBlock>
+                     Margin="0,-10,0,5">Employees Age Group in Various Departments</TextBlock>
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>
                 <chart:CategoryAxis  Header="Department" Foreground="Black"  FontSize="15" 
-                                  LabelPlacement="BetweenTicks"
-                                  >
+                               LabelPlacement="BetweenTicks"
+                               >
                 </chart:CategoryAxis>
             </chart:SfChart.PrimaryAxis>
 
             <chart:SfChart.SecondaryAxis>
                 <chart:NumericalAxis FontSize="15" Interval="10"  
-                                  Header="Age" Foreground="Black"
-                                  Minimum="10"
-                                  />
+                               Header="Age" Foreground="Black"
+                               Minimum="10"
+                               />
             </chart:SfChart.SecondaryAxis>
 
             <local:BoxAndWhiskerSeriesExt ItemsSource="{Binding BoxWhiskerData}"  
-                                    XBindingPath="Department" ShowOutlier="False"
-                                    YBindingPath="Age" ShowTooltip="True"
-                                    BoxPlotMode="Normal"
-                                    x:Name="boxSeries"   />
-         
+                                 XBindingPath="Department" ShowOutlier="False"
+                                 YBindingPath="Age" ShowTooltip="True"
+                                 BoxPlotMode="Normal"
+                                 x:Name="boxSeries"   />
+
         </chart:SfChart>
 
     </Grid>
