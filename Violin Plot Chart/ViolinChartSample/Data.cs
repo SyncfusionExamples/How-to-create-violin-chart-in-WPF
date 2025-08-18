@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sample1
+namespace ViolinChartSample
 {
     public class BoxWhiskerModel
     {
-        public string Department { get; set; }
-        public List<double> Age { get; set; }
+        public string? Department { get; set; }
+        public List<double>? Age { get; set; }
     }
 
     public class BoxWhiskerViewModel
