@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sample1
+namespace ViolinChartSample
 {
     public class BoxWhiskerModel
     {
