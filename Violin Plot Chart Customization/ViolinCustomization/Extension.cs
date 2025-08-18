@@ -1,5 +1,4 @@
-﻿using Sample;
-using Syncfusion.UI.Xaml.Charts;
+﻿using Syncfusion.UI.Xaml.Charts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Sample1
+namespace ViolinCustomization
 {
     public class BoxAndWhiskerSeriesExt : BoxAndWhiskerSeries
     {
